@@ -1,6 +1,6 @@
 from .lib import *
 from functools import wraps as _smart_deco_wraps
-from sys import argv as _a
+from sys import argv as a
 
 o = open
 w = lambda f : o(f, 'w')
@@ -36,7 +36,7 @@ def compile_subpr(fp, v):
     v.append('from subpr.lib import *\n')
     return fp.writelines(v)
 
-def main(*argv, _a = _a):
+def main(*argv, _a = a):
     L = len(argv)
     if L - 1: compile_subpr(argv)
     elif L: main(None, input('WARN : no param\ninput argument : '))
