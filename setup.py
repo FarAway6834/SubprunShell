@@ -10,11 +10,9 @@ setup(
     packages=find_packages(exclude=[]),
     install_requires=['martialLaw',],
     keywords=['subpr'],
-    python_requires='>=3.4',
+    python_requires='>=3.6',
     package_data={},
     classifiers=[
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
