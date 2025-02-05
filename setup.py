@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='subpr',
-    version='0.0.1',
+    version='0.0.2',
     description='subprocess.run & os.chdir python shell libs (shell/exec/load/compile)',
     author='du7ec',
     author_email='dutec6834@gmail.com',
