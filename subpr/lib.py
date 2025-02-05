@@ -20,7 +20,8 @@ cmpl_elsesc = lambda v : cdvc(v) if iscd(v) else shellvc(v)
 cmpl_elses = lambda v : compv(*cmpl_elsesc(v))
 compline = lambda v : exitv(v) if isexit(v) else cmpl_elses(v)
 
-pysrcv = lambda f, argv : f'{f}{argv}'
+pysrcargv = lambda argv : (lambda v : f"'{v}'" if v else v)("','".join(argv))
+pysrcv = lambda f, argv : f'{f}({pysrcargv(argv)})'
 py_compline = lambda v : pysrcv(*compline(v))
 
 ignorlast = lambda x : x[:-1]
