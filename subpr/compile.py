@@ -12,20 +12,22 @@ def wither(opener = o):
         def with_opener(name, *argv, **kargv):
             with opener(name) as man:
                 return func(man, *argv, **kargv)
+        return with_opener
+    return with_deco
 
 def simple_fixer(read):
-    reads = martialaw(wither()(read))
+    reads = martialaw(wither()(read)) #can get name to make f
     def simple_fixer_deco(write):
-        writes = martialaw(wither(w)(write))
+        writes = martialaw(wither(w)(write)) #can get name to make f
         def nameget(name):
-            return fmot(reads(name), write(name))
+            return fmot(writes(name), reads(name)) #namewriter(namereader()) #can get name to make f
         
         def simple_fix(name, *argv, **kargv):
             return nameget(name)(*argv, **kargv)
         return simple_fix
     return simple_fixer_deco
 
-every = lamp(lambda f, x : f(x), zip(map(martialaw, (lmap, map, map)), (lastnewline, py_compline, ignorlast)))
+every = lamp(lambda x : x[0](x[1]), zip(map(martialaw, (lamp, map, map)),(lastnewline, py_compline, ignorlast)))
 
 @simple_fixer
 def subpr_compiler(fp):
@@ -33,12 +35,12 @@ def subpr_compiler(fp):
 
 @subpr_compiler
 def compile_subpr(fp, v):
-    v.append('from subpr.lib import *\n')
+    v.insert(0, 'from subpr.lib import *\n')
     return fp.writelines(v)
 
 def main(*argv, _a = a):
     L = len(argv)
-    if L - 1: compile_subpr(argv)
+    if L > 1: compile_subpr(argv[-1])
     elif L: main(None, input('WARN : no param\ninput argument : '))
     else: main(*_a)
 
