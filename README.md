@@ -1,6 +1,8 @@
 # SubprunShell
 Subprun Shell Scripr
 
+*`pip install subpr`*
+
 ## `subpr.lib`
 
 has compile resource. (ex : `subpr()`)
