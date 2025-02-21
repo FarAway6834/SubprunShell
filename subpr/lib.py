@@ -2,10 +2,18 @@ from subprocess import run as _r
 from os import chdir as cd
 from martialaw.martialaw import *
 
+#issue
+from sys import exit as _v
+
+try:
+    v = exit
+except:
+    v = _v
+#fix [https://github.com/FarAway6834/SubprunShell/issues/1]
 
 s = shell = partial(_r, shell = True)
 cmds = {
-    "exit" : exit,
+    "exit" : v,
     "cd" : cd,
     "shell" : shell
 }
