@@ -37,4 +37,4 @@ lastnewline = lambda x : f'{x}\n'
 lamp = lmap = lambda f, i : list(map(f, i))
 
 runlinec = lambda f, argv : lambda : cmds[f](*argv)
-subpr = runlinef = lambda v : runlinec(*compline(v))
+__subpr__ = subpr = runlinef = lambda v : runlinec(*compline(v))
